@@ -1,6 +1,4 @@
 package com.blil.runnerz.run;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public record run(
