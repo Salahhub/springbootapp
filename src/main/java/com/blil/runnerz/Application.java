@@ -1,16 +1,24 @@
 package com.blil.runnerz;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import org.slf4j.Logger;
+
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import com.blil.runnerz.run.run;
+import com.blil.runnerz.run.Location;
+
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
+	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
+	public static void main(String[] args) {
+      SpringApplication.run(Application.class, args);
 
 	}
    @Bean
@@ -22,7 +30,8 @@ public class Application {
 		 * starting today and ending 1 hour from now, covering 5 kilometers,
 		 * and set to take place outdoors.
 		 */
-		   run run = new run(1, "Morning Run",LocalDate.now(), LocalDate.now().plus(1,ChronoUnit.HOURS),5, Location.OUTDOOR);
-	   };
+		   run run = new run(1, "Morning Run",LocalDateTime.now(), LocalDateTime.now().plus(1,ChronoUnit.HOURS),5, Location.OUTDOOR);
+	   log.info("New run created: {}", run);
+		};
    }
 }
