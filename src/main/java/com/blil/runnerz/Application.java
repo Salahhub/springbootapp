@@ -24,12 +24,6 @@ public class Application {
    @Bean
    CommandLineRunner runner() {
 	   return args -> {
-		/**
-		 * Creates a new run instance with the specified details.
-		 * Initializes a run object with ID 1, title "Morning Run", 
-		 * starting today and ending 1 hour from now, covering 5 kilometers,
-		 * and set to take place outdoors.
-		 */
 		   run run = new run(1, "Morning Run",LocalDateTime.now(), LocalDateTime.now().plus(1,ChronoUnit.HOURS),5, Location.OUTDOOR);
 	   log.info("New run created: {}", run);
 		};
